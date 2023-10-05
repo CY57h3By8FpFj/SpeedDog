@@ -51,7 +51,7 @@ Configuration is needed only for client mode. All config parameters are stored i
 `SMTP_HOST` - Host address for SMTP server\
 `SMTO_PORT` - Port for SMTP server\
 `SMTP_USER` - Username for SMTP server\
-`SMTP_PASS` - Password for SMTP server\
+`SMTP_PASS` - Password for SMTP server
 
 ## Usage/Examples
 SpeedDog works as systemd daemon, run it like others daemons.\

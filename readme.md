@@ -33,7 +33,7 @@ python3 install.py -m [mode]
 + DONE
 
 ## Configuration
-Configuration is needed only for client mode. All config parameters are stored in `.env` file in `/opt/SpeedDog` folder. 
+Configuration is needed only for client mode. All config parameters are stored in `SpeedDog.conf` file in `/etc/SpeedDog` folder. 
 
 ### List of config parameters
 

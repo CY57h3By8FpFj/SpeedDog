@@ -1,0 +1,14 @@
+[Unit]
+Description = SpeedDog daemon - server mode.
+Documentation = https://github.com/CY57h3By8FpFj/SpeedDog
+
+[Service]
+User = root
+WorkingDirectory = /opt/SpeedDog/
+ExecStart = python3 /opt/SpeedDog/speeddog_server.py
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
+

@@ -14,6 +14,7 @@ Systemd daemon to check speed between two host and report (email) if speed value
 For correct work, you must run two instances of SpeedDog, server and client. On the one host install SpeedDog in server mode on the second host install SpeedDog in client mode. Both host must be in the same network or routable between it. For speed  measure used is Iperf.
 
 ## Installation
+### Install from sources
 SpeddDog works in two modes server or client. 
 To install mode what you want use:
 -m parameter `[server or client]`
@@ -31,6 +32,10 @@ cd SpeddDog
 python3 install.py -m [mode] 
 ```
 + DONE
+
+### Install deb package
++ Download deb package from [releases](https://github.com/CY57h3By8FpFj/SpeedDog/releases)
++ Install with apt
 
 ## Configuration
 Configuration is needed only for client mode. All config parameters are stored in `SpeedDog.conf` file in `/etc/SpeedDog` folder. 

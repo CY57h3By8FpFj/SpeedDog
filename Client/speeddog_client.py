@@ -18,7 +18,7 @@ while True:
     if speed_value is not None:
         log_info(f'Link speed to {SDOG_SRV} - {speed_value} Gbps')
         if is_to_slow(speed=speed_value, limit=LIMIT):
-            log_warn(f'Speed is below the LIMIT: {LIMIT} Gbps')
+            log_warn(f'Speed is below the LIMIT: {LIMIT} Gbps, current speed {speed_value} Gbps')
             if RP_SPEED:
                 send_limit_alert(speed_value=speed_value, limit_value=LIMIT)
     log_info(f'Wait {INTERVAL}min.')

@@ -5,7 +5,7 @@ from socket import gethostname
 from utils import check_mail, stop_daemon
 from logs import log_config_error
 
-CONFIG_FILE_PATH = '/etc/SpeedDog/SpeedDog.conf'
+CONFIG_FILE_PATH = '/etc/SpeedDog/config/SpeedDog.conf'
 
 config = ConfigParser()
 config.read(CONFIG_FILE_PATH)

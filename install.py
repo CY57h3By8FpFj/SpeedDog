@@ -17,7 +17,7 @@ CLI_UNIT_FILE = 'speeddog-client.service'
 SRV_UNIT_PATH = SRV_DIR + UNIT_DIR + '//' + SRV_UNIT_FILE
 CLI_UNIT_PATH = CLI_DIR + UNIT_DIR + '//' + CLI_UNIT_FILE
 INSTALL_PATH = '/opt/SpeedDog/'
-SYSTEMD_UNIT_PATH = '/etc/systemd/system/'
+SYSTEMD_UNIT_PATH = '/usr/lib/systemd/system'
 CONFIG_PATH_DST = '/etc/SpeedDog/'
 CONFIG_PATH_SRC = '/config/'
 

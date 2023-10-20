@@ -34,7 +34,7 @@ python3 install.py -m [mode]
 + DONE
 
 ### Install deb package
-+ Download deb package from [releases](https://github.com/CY57h3By8FpFj/SpeedDog/releases)
++ Download deb package from [releases](https://github.com/CY57h3By8FpFj/SpeedDog/releases) (Use wget or similar)
 + Install with apt
 
 ## Configuration

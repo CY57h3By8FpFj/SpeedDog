@@ -1,7 +1,7 @@
 
 # SpeedDog
 
-Systemd daemon to check speed between two host and report (email) if speed value is less than required limit.
+Systemd daemon for checking the speed between two hosts and reporting (by email) when the speed is below the required limit.
 
 ## Table of contents
 * [Introduction](#Introduction)
@@ -11,61 +11,60 @@ Systemd daemon to check speed between two host and report (email) if speed value
 * [Technologies](#Technologies)
 
 ## Introduction
-For correct work, you must run two instances of SpeedDog, server and client. On the one host install SpeedDog in server mode on the second host install SpeedDog in client mode. Both host must be in the same network or routable between it. For speed  measure used is Iperf.
+For SpeedDog to work properly, you need to run two instances of SpeedDog, a server and a client. Install SpeedDog in server mode on one host and in client mode on the other. Both hosts must be on the same network or routable between them. Iperf is used to measure the speed.
+
 
 ## Installation
-### Install from sources
-SpeddDog works in two modes server or client. 
-To install mode what you want use:
--m parameter `[server or client]`
+### Install from source
+SpeedDog operates in one of two modes, server or client. To install in which mode, use the `-m` parameter `[server or client]`.
 
 + Download repo
 ```
 git clone https://github.com/CY57h3By8FpFj/SpeedDog
 ```
-+ Enter to cloned folder
++ Go to the cloned folder
 ```
-cd SpeddDog
+cd SpeedDog
 ```
-+ Run installation (as root)
++ Run the installation (as root)
 ```
 python3 install.py -m [mode] 
 ```
 + DONE
 
-### Install deb package
-+ Download deb package from [releases](https://github.com/CY57h3By8FpFj/SpeedDog/releases) (Use wget or similar)
+### Install the deb package
++ Download deb package from [releases](https://github.com/CY57h3By8FpFj/SpeedDog/releases) (use wget or similar)
 + Install with apt
 
 ## Configuration
-Configuration is needed only for client mode. All config parameters are stored in `SpeedDog.conf` file in `/etc/SpeedDog` folder. 
+Configuration is only necessary for client mode. All configuration parameters are stored in the `SpeedDog.conf` file in the `/etc/SpeedDog` folder. 
 
 ### List of config parameters
 
-#### Base Config
-`SRV_DOG` - IP address for SpeedDog server\
+#### Base config
+`SRV_DOG` - IP address of SpeedDog server\
 `INTERVAL` - time in minutes between speed tests\
-`LIMIT` - minimal speed for link between client and server
+`LIMIT` - minimum speed for connection between client and server
 
 #### Reports config
-`RP_ERRORS` - send mail if errors\
-`RP_LIMIT` - send mail if speed has less than limit
+`RP_ERRORS` - send mail on error\
+`RP_LIMIT` - send mail when speed is below limit
 
 #### Mail config
-`RECEIVER` - Email address to send messages\
-`SMTP_HOST` - Host address for SMTP server\
-`SMTO_PORT` - Port for SMTP server\
-`SMTP_USER` - Username for SMTP server\
-`SMTP_PASS` - Password for SMTP server
+`RECEIVER` - email address to send messages\
+`SMTP_HOST` - host address for SMTP server\
+`SMTO_PORT` - port for SMTP server\
+`SMTP_USER` - username for SMTP server\
+`SMTP_PASS` - password for SMTP server
 
 ## Usage/Examples
-SpeedDog works as systemd daemon, run it like others daemons.\
+SpeedDog is a systemd daemon, run it like any other daemon.\
 \
-For client (as root):
+For the client (as root):
 ```
 systemctl start speeddog-client
 ```
-For server (as root):
+For the server (as root):
 ```
 systemctl start speeddog-server
 ```

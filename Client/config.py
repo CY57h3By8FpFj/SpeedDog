@@ -2,10 +2,17 @@
 from configparser import ConfigParser
 from ipaddress import ip_address
 from socket import gethostname
+from os import path
 from utils import check_mail, stop_daemon
-from logs import log_config_error
+from logs import log_config_error, log_error
 
 CONFIG_FILE_PATH = '/etc/SpeedDog/config/SpeedDog.conf'
+
+if path.exists(CONFIG_FILE_PATH) is not True:
+    log_error(
+        'Config file not exist, reinstall program or create config file.'
+    )
+    stop_daemon()
 
 config = ConfigParser()
 config.read(CONFIG_FILE_PATH)
@@ -23,6 +30,8 @@ class AppConfig:
 
     try:
         INTERVAL = config.getint('CLIENT_CONFIG', 'INTERVAL')
+        if INTERVAL < 5:
+            log_error("INTERVAL value is less than minimum time. (5 minute)")
     except ValueError as err:
         log_config_error('INTERVAL')
         stop_daemon()

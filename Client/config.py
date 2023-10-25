@@ -31,7 +31,7 @@ class AppConfig:
     try:
         INTERVAL = config.getint('CLIENT_CONFIG', 'INTERVAL')
         if INTERVAL < 5:
-            log_error("INTERVAL value is less than minimum time. (5 minute)")
+            log_error('INTERVAL value is less than minimum time. (5 minute)')
             stop_daemon()
     except ValueError as err:
         log_config_error('INTERVAL')
@@ -57,36 +57,52 @@ class AppConfig:
         stop_daemon()
 
     # ===MAIL CONFIG===
-    RECEIVER = config.get('MAIL', 'RECEIVER')
+    # RECEIVER
     if RP_SPEED is True or RP_ERRORS is True:
+        RECEIVER = config.get('MAIL', 'RECEIVER')
         if check_mail(RECEIVER) is False:
             log_config_error('RECEIVER')
             stop_daemon()
+    else:
+        RECEIVER = None
 
-    SMTP_HOST = config.get('MAIL', 'SMTP_HOST')
+    # SMTP_HOST
     if RP_SPEED is True or RP_ERRORS is True:
+        SMTP_HOST = config.get('MAIL', 'SMTP_HOST')
         if len(SMTP_HOST) == 0:
             log_config_error('SMTP_HOST')
             stop_daemon()
+    else:
+        SMTP_HOST = None
 
-    try:
-        if RP_SPEED is True or RP_ERRORS is True:
-            SMTP_PORT = config.getint('MAIL', 'SMTP_PORT')
-    except ValueError as err:
-        log_config_error('SMTP_PORT')
-        stop_daemon()
-
-    SMTP_USER = config.get('MAIL', 'SMTP_USER')
+    # SMTP_PORT
     if RP_SPEED is True or RP_ERRORS is True:
+        try:
+            if RP_SPEED is True or RP_ERRORS is True:
+                SMTP_PORT = config.getint('MAIL', 'SMTP_PORT')
+        except ValueError as err:
+            log_config_error('SMTP_PORT')
+            stop_daemon()
+    else:
+        SMTP_PORT = None
+
+    # SMTP_USER
+    if RP_SPEED is True or RP_ERRORS is True:
+        SMTP_USER = config.get('MAIL', 'SMTP_USER')
         if len(SMTP_USER) == 0:
             log_config_error('SMTP_USER')
             stop_daemon()
+    else:
+        SMTP_USER = None
 
-    SMTP_PASS = config.get('MAIL', 'SMTP_PASS')
+    # SMTP_PASS
     if RP_SPEED is True or RP_ERRORS is True:
+        SMTP_PASS = config.get('MAIL', 'SMTP_PASS')
         if len(SMTP_PASS) == 0:
             log_config_error('SMTP_USER')
             stop_daemon()
+    else:
+        SMTP_PASS = None
 
     # ===HOSTNAME===
     try:

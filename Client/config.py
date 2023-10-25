@@ -32,6 +32,7 @@ class AppConfig:
         INTERVAL = config.getint('CLIENT_CONFIG', 'INTERVAL')
         if INTERVAL < 5:
             log_error("INTERVAL value is less than minimum time. (5 minute)")
+            stop_daemon()
     except ValueError as err:
         log_config_error('INTERVAL')
         stop_daemon()
